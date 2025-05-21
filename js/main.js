@@ -1,4 +1,3 @@
-// Option Component (no changes needed here)
 function fetchCSV() {
     fetch('../city_coordinates.csv')
         .then(response => response.text())
@@ -28,7 +27,7 @@ function fetchCSV() {
 // Call the function to fetch and display CSV data
 fetchCSV();
 
-// Card Component (no changes needed here)
+// Weather Card Component
 function createCard(title, imageSrc, details) {
     // Create elements from the DOM
     const card = document.createElement('div');
@@ -58,11 +57,9 @@ function createCard(title, imageSrc, details) {
 
     // Append elements to the card
     body.appendChild(image);
-    body.appendChild(detailsList); // Append the list to the body
+    body.appendChild(detailsList);
     card.appendChild(header);
     card.appendChild(body);
-    // Optionally append footer if needed
-    // card.appendChild(footer);
 
     const container = document.getElementById('card-container');
     if (container) {
@@ -128,9 +125,6 @@ function getWeatherIconUrl(weatherData) {
     let { cloudcover, precipitation_rate, humidity, lifted_index, wind_speed } = weatherData;
     let iconUrl = '';
 
-    console.log('Cloud Cover:', cloudcover);
-    console.log('Weather Data:', weatherData);
-
     // Determine the icon based on conditions
     if (cloudcover < 20) {
         iconUrl = '/images/clear.png';
@@ -138,45 +132,45 @@ function getWeatherIconUrl(weatherData) {
         iconUrl = '/images/pcloudy.png';
     } else if (cloudcover >= 60 && cloudcover < 80) {
         if (precipitation_rate < 4) {
-            iconUrl = '/images/cloudy.png'; // Cloudy
+            iconUrl = '/images/cloudy.png';
         } else {
-            iconUrl = '/images/oshower.png'; // Occasional Showers
+            iconUrl = '/images/oshower.png';
         }
     } else if (cloudcover >= 80) {
         if (precipitation_rate < 4) {
-            iconUrl = '/images/fog.png'; // Foggy
+            iconUrl = '/images/fog.png';
         } else {
-            iconUrl = '/images/lightrain.png'; // Light Rain or Showers
+            iconUrl = '/images/lightrain.png';
         }
     }
 
-    // Handle precipitation scenarios
+    // Handle precipitation
     if (precipitation_rate >= 4) {
         if (humidity > 90) {
-            iconUrl = '/images/rainsnow.png'; // Mixed
+            iconUrl = '/images/rainsnow.png';
         } else {
-            iconUrl = '/images/rain.png'; // Rain
+            iconUrl = '/images/rain.png';
         }
     }
 
     // Handle snow
     if (precipitation_rate >= 4 && weatherData.isSnow) {
-        iconUrl = '/images/snow.png'; // Snow
+        iconUrl = '/images/snow.png'; 
     }
 
     // Handle thunderstorms
     if (lifted_index < -5) {
         if (precipitation_rate > 4) {
-            iconUrl = '/images/tsrain.png'; // Thunderstorm
+            iconUrl = '/images/tsrain.png'; 
         } else {
-            iconUrl = '/images/tstorm.png'; // Thunderstorm Possible
+            iconUrl = '/images/tstorm.png';
             
         }
     }
 
     // Handle windy conditions
     if (wind_speed > 10.8) {
-        iconUrl = '/images/windy.png'; // Windy
+        iconUrl = '/images/windy.png';
     }
 
     return iconUrl;
