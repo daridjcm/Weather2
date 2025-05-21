@@ -1,0 +1,69 @@
+body {
+    background-color: #64A9E2;
+    font-family: Arial, sans-serif;
+    color: whitesmoke;
+    margin: 0;
+}
+
+header {
+    background: linear-gradient(to right, #224474 0%, #78c0fb 100%);
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+section {
+    padding: 10px;
+}
+
+#card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/* Component Card */
+.card {
+    background: linear-gradient(to bottom, #78c0fb 0%, #bee0f7 100%);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    height: 250px;
+    margin: 20px;
+}
+
+.card-header {
+    padding: 16px;
+    text-align: center;
+    font-size: 1.5em;
+    color: #224474;
+}
+
+.card-body {
+    color: #224474;
+    padding: 16px;
+    text-align: center;
+}
+
+li {
+    text-align: start;
+}
+
+
+
+footer {
+    background: linear-gradient(to right, #224474 0%, #78c0fb 100%);
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    font-size: 1em;
+}
