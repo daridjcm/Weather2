@@ -1,5 +1,5 @@
 function fetchCSV() {
-    fetch('../city_coordinates.csv')
+    fetch('https://daridjcm.github.io/Weather2/city_coordinates.csv')
         .then(response => response.text())
         .then(data => {
             const rows = data.split('\n').slice(1);
@@ -70,7 +70,7 @@ function createCard(title, imageSrc, details) {
 }
 
 function getWeatherData(lon, lat) {
-    const url = `http://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civil&output=json`;
+    const url = `https://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civil&output=json`;
     fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -127,50 +127,50 @@ function getWeatherIconUrl(weatherData) {
 
     // Determine the icon based on conditions
     if (cloudcover < 20) {
-        iconUrl = '/images/clear.png';
+        iconUrl = 'https://daridjcm.github.io/Weather2/images/clear.png';
     } else if (cloudcover >= 20 && cloudcover < 60) {
-        iconUrl = '/images/pcloudy.png';
+        iconUrl = 'https://daridjcm.github.io/Weather2/images/pcloudy.png';
     } else if (cloudcover >= 60 && cloudcover < 80) {
         if (precipitation_rate < 4) {
-            iconUrl = '/images/cloudy.png';
+            iconUrl = 'https://daridjcm.github.io/Weather2/images/cloudy.png';
         } else {
-            iconUrl = '/images/oshower.png';
+            iconUrl = 'https://daridjcm.github.io/Weather2/images/oshower.png';
         }
     } else if (cloudcover >= 80) {
         if (precipitation_rate < 4) {
-            iconUrl = '/images/fog.png';
+            iconUrl = 'https://daridjcm.github.io/Weather2/images/fog.png';
         } else {
-            iconUrl = '/images/lightrain.png';
+            iconUrl = 'https://daridjcm.github.io/Weather2/images/lightrain.png';
         }
     }
 
     // Handle precipitation
     if (precipitation_rate >= 4) {
         if (humidity > 90) {
-            iconUrl = '/images/rainsnow.png';
+            iconUrl = 'https://daridjcm.github.io/Weather2/images/rainsnow.png';
         } else {
-            iconUrl = '/images/rain.png';
+            iconUrl = 'https://daridjcm.github.io/Weather2/images/rain.png';
         }
     }
 
     // Handle snow
     if (precipitation_rate >= 4 && weatherData.isSnow) {
-        iconUrl = '/images/snow.png'; 
+        iconUrl = 'https://daridjcm.github.io/Weather2/images/snow.png'; 
     }
 
     // Handle thunderstorms
     if (lifted_index < -5) {
         if (precipitation_rate > 4) {
-            iconUrl = '/images/tsrain.png'; 
+            iconUrl = 'https://daridjcm.github.io/Weather2/images/tsrain.png'; 
         } else {
-            iconUrl = '/images/tstorm.png';
+            iconUrl = 'https://daridjcm.github.io/Weather2/images/tstorm.png';
             
         }
     }
 
     // Handle windy conditions
     if (wind_speed > 10.8) {
-        iconUrl = '/images/windy.png';
+        iconUrl = 'https://daridjcm.github.io/Weather2/images/windy.png';
     }
 
     return iconUrl;
