@@ -9,6 +9,7 @@ header {
     background: linear-gradient(to right, #224474 0%, #78c0fb 100%);
     position: fixed;
     padding: 20px;
+    width: 100%;
     text-align: center;
     font-size: 1.5em;
 }
@@ -72,8 +73,11 @@ li {
 
 footer {
     background: linear-gradient(to right, #224474 0%, #78c0fb 100%);
-    padding: 20px;
+    position: absolute;
     bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
     width: 100%;
     height: 40px;
     text-align: center;
