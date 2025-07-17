@@ -7,9 +7,24 @@ body {
 
 header {
     background: linear-gradient(to right, #224474 0%, #78c0fb 100%);
+    position: fixed;
     padding: 20px;
     text-align: center;
     font-size: 1.5em;
+}
+
+select {
+    background-color: #224474;
+    color: whitesmoke;
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    border-color: #f3f3f3;
+}
+
+option:first-child {
+    color: #c7defd;
+    font-weight: bold;
 }
 
 section {
@@ -55,12 +70,9 @@ li {
     text-align: start;
 }
 
-
-
 footer {
     background: linear-gradient(to right, #224474 0%, #78c0fb 100%);
     padding: 20px;
-    position: fixed;
     bottom: 0;
     width: 100%;
     height: 40px;
